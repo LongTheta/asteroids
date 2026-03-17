@@ -12,3 +12,6 @@ wheels/
 # Logs
 game_state.jsonl
 game_events.jsonl
+
+# Local data
+highscore.json
