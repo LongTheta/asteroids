@@ -76,9 +76,45 @@ boot_astroids/
 └── README.md
 ```
 
-## Boot.dev
+## Boot.dev Learning Path vs. This Project
 
-This project was created for the Boot.dev curriculum:
+This project started from the [Boot.dev Backend Developer curriculum](https://boot.dev) Asteroids module. The base learning path covers OOP concepts, Pygame sprites, and game loop structure.
+
+### What the Boot.dev Path Teaches (Base Game)
+
+- **CircleShape** base class with position, velocity, radius, and collision detection
+- **Player** as a triangle ship with rotation and movement (WASD)
+- **Sprite groups** (updatable, drawable) for managing game objects
+- **Asteroid** class with splitting (large → medium → small)
+- **Shot** class with rate-limited shooting (spacebar)
+- **Collision handling** – player hit ends the game; shots destroy asteroids
+- Basic game loop with update and draw
+
+The base game exits immediately on any asteroid collision (`sys.exit()`). There is no scoring, no lives, no menus, and no visual polish.
+
+### What We Added (Beyond the Curriculum)
+
+| Feature | Description |
+|---------|-------------|
+| **Screen wrapping** | Player, asteroids, and shots wrap around screen edges instead of drifting off |
+| **Scoring system** | Points for destroying asteroids (100/50/25 by size) |
+| **Lives & respawning** | 3 lives; respawn at center with 2 seconds of invincibility |
+| **Main menu** | Start screen with Play and Quit before the game begins |
+| **Pause menu** | Pause/resume with P or ESC |
+| **Game over screen** | Final score, high score, and restart option instead of exiting |
+| **High score persistence** | Best score saved to `highscore.json` across sessions |
+| **Explosion effects** | Particle bursts when asteroids are destroyed |
+| **Starfield background** | Animated starfield for atmosphere |
+| **Thrust effect** | Visible flame when accelerating with W |
+| **Shot lifetime** | Bullets expire after 2 seconds to limit on-screen clutter |
+
+### New Files (Not in Base Path)
+
+- `explosion.py` – Particle system for asteroid explosions
+- `starfield.py` – Background starfield
+- `highscore.py` – Load/save high score to disk
+
+### Boot.dev Run Command
 
 ```
 bootdev run 7228cde1-e519-4ee4-920e-1c50011197bb
